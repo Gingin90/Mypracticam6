@@ -16,6 +16,8 @@
         android:ems="10"
         android:inputType="text"
         android:text="Name"
+        android:textAlignment="center"
+        android:textColor="#7B1FA2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,21 +27,37 @@
         android:id="@+id/btAgregar"
         android:layout_width="265dp"
         android:layout_height="63dp"
-        android:layout_marginBottom="116dp"
         android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewTar"
         android:layout_width="319dp"
         android:layout_height="48dp"
-        android:text="Tareas Agregadas"
+        android:text="Agragar Tareas"
+        android:textAlignment="center"
+        android:textColor="#231E25"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="#87579C" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
