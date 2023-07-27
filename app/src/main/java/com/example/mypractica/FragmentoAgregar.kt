@@ -59,5 +59,15 @@ class FragmentoAgregar : Fragment() {
         GlobalScope.launch { dao.insertarTarea(task) }
     }
 
+    private  fun loadTasks(){
+        val dao =TareaBaseDato.getDatabase(requireContext()).getTaskDao()
+        GlobalScope.launch {
+            val tasks = dao.getTasks()
+            val tasksAsText = tasks.joinToString("\n") { it.nombreTarea }
+            binding.textViewTar.text = tasksAsText
+        }
+
+    }
+
 
 }
