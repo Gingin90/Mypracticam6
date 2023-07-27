@@ -42,6 +42,7 @@ class FragmentoAgregar : Fragment() {
         binding = FragmentFragmentoAgregarBinding.inflate(layoutInflater,container, false)
         // Inflate the layout for this fragment
         initListener()
+        loadTasks()
         return binding.root
     }
 
