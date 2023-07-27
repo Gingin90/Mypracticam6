@@ -2,6 +2,8 @@ package com.example.mypractica
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mypractica.databinding.ActivityMainBinding
+
 //[]Recycler view
 //[]Room
 //[] dao
@@ -13,8 +15,11 @@ import android.os.Bundle
 //[] navigation
 // **
 class MainActivity : AppCompatActivity() {
+    lateinit var binding :ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 }

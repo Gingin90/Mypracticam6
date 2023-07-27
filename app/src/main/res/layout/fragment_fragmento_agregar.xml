@@ -23,13 +23,23 @@
 
     <Button
         android:id="@+id/btAgregar"
-        android:layout_width="152dp"
-        android:layout_height="46dp"
+        android:layout_width="265dp"
+        android:layout_height="63dp"
         android:layout_marginBottom="116dp"
-        android:text="Button"
+        android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTar"
+        android:layout_width="319dp"
+        android:layout_height="48dp"
+        android:text="Tareas Agregadas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
