@@ -20,7 +20,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class FragmentoAgregar : Fragment() {
-   lateinit var binding : FragmentFragmentoAgregarBinding
+    lateinit var binding: FragmentFragmentoAgregarBinding
+    lateinit var repositorio: Repositorio
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,20 +36,26 @@ class FragmentoAgregar : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFragmentoAgregarBinding.inflate(layoutInflater,container, false)
+        binding = FragmentFragmentoAgregarBinding.inflate(layoutInflater, container, false)
         // Inflate the layout for this fragment
+        initRepositorio()
         initListener()
         loadTasks()
         return binding.root
     }
 
+    private fun initRepositorio() {
+        repositorio=Repositorio(TareaBaseDato.getDatabase(requireContext()).getTaskDao())
+    }
 
-        private fun initListener() {
+
+
+
+    private fun initListener() {
             binding.btAgregar.setOnClickListener {
                 val texto = binding.editTextTarea.text.toString()
                 saveTask(texto)
@@ -55,20 +63,22 @@ class FragmentoAgregar : Fragment() {
         }
 
     private fun saveTask(texto: String) {
-    val dao =TareaBaseDato.getDatabase(requireContext()).getTaskDao()
+
         val task = Tarea(texto,"fecha")
-        GlobalScope.launch { dao.insertarTarea(task) }
+        GlobalScope.launch { repositorio.insertTask(task) }
     }
 
     private  fun loadTasks(){
         val dao =TareaBaseDato.getDatabase(requireContext()).getTaskDao()
-        GlobalScope.launch {
-            val tasks = dao.getTasks()
-            val tasksAsText = tasks.joinToString("\n") { it.nombreTarea }
-            binding.textViewTar.text = tasksAsText
+
+            val tasks = dao.getTasks().observe(requireActivity()){
+                val tasksAsText = it.joinToString("\n") { it.nombreTarea}
+                binding.textViewTar.text = tasksAsText
+            }//recuperar tarea
+
         }
 
     }
 
 
-}
+
