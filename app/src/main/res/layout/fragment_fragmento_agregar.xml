@@ -34,8 +34,8 @@
 
     <TextView
         android:id="@+id/textViewTar"
-        android:layout_width="319dp"
-        android:layout_height="48dp"
+        android:layout_width="416dp"
+        android:layout_height="88dp"
         android:text="Agragar Tareas"
         android:textAlignment="center"
         android:textColor="#231E25"

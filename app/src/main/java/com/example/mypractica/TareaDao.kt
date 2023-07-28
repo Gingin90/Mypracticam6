@@ -11,5 +11,6 @@ interface TareaDao {
     suspend fun insertarTarea(tarea:Tarea)
 
     @Query("select*from tabla_tarea order by id ASC")
+
     fun getTasks() : LiveData<List<Tarea>>
 }

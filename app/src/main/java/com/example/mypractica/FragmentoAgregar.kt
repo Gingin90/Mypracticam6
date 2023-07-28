@@ -14,11 +14,7 @@ import kotlinx.coroutines.launch
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentoAgregar.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FragmentoAgregar : Fragment() {
     lateinit var binding: FragmentFragmentoAgregarBinding
     lateinit var repositorio: Repositorio
@@ -34,7 +30,6 @@ class FragmentoAgregar : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,9 +47,6 @@ class FragmentoAgregar : Fragment() {
         repositorio=Repositorio(TareaBaseDato.getDatabase(requireContext()).getTaskDao())
     }
 
-
-
-
     private fun initListener() {
             binding.btAgregar.setOnClickListener {
                 val texto = binding.editTextTarea.text.toString()
@@ -70,7 +62,6 @@ class FragmentoAgregar : Fragment() {
 
     private  fun loadTasks(){
         val dao =TareaBaseDato.getDatabase(requireContext()).getTaskDao()
-
             val tasks = dao.getTasks().observe(requireActivity()){
                 val tasksAsText = it.joinToString("\n") { it.nombreTarea}
                 binding.textViewTar.text = tasksAsText
